@@ -8,7 +8,7 @@
             "name": "Flash",
             "type": "fdb",
             "request": "launch",
-            "program": "${workspaceRoot}/bin/flash/bin/LD40.swf"
+            "program": "${workspaceRoot}/bin/flash/bin/LDTemplate.swf"
         }
     ]
 }
