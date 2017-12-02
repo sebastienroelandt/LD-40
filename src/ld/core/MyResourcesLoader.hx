@@ -15,27 +15,24 @@ import lib.sro.core.ResourcesStorage;
 class MyResourcesLoader
 {
 	public static function load(rs:ResourcesStorage) {
-		
-		var body = new StatedAnimationData("body"); 
-		var bodyTileset = Assets.getBitmapData("img/Body.png"); 
-		body.addLinearFrames("move", ResourcesLoader.splitToBitmapData(bodyTileset, 0, 0, 64, 64, 4, 1),100); 
-		body.setLoop("move", true); 
-		rs.addStatedAnimationData("body", body); 
-		
-		var head = new StatedAnimationData("head"); 
-		var headTileset = Assets.getBitmapData("img/Head.png"); 
-		head.addLinearFrames("move", ResourcesLoader.splitToBitmapData(headTileset, 0, 0, 25, 25, 4, 1),100); 
-		head.setLoop("move", true); 
-		rs.addStatedAnimationData("head", head); 
-		
-		var toggleButtonBitmapData:BitmapData = Assets.getBitmapData("img/sound.png"); 
-		var toggleButtons = ResourcesLoader.splitToBitmapData(toggleButtonBitmapData, 0, 0, 32, 32, 2, 1); 
-		rs.addBitmapData("t1", toggleButtons[0]); 
-		rs.addBitmapData("t2", toggleButtons[1]); 
-		
-		var tileset = Assets.getBitmapData("img/test_gridcollision.png");
-		var tilesetSplited = ResourcesLoader.splitToBitmapData(tileset, 0, 0, 50, 50, 2, 1);
+			
+		var tileset = Assets.getBitmapData("img/tilemap.png");
+		var tilesetSplited = ResourcesLoader.splitToBitmapData(tileset, 0, 0, 32, 32, 4, 1);
 		rs.addTileset("tileset", tilesetSplited);
+		
+		var player = new StatedAnimationData("player"); 
+		var playerTileset = Assets.getBitmapData("img/player.png"); 
+		player.addLinearFrames("idle", ResourcesLoader.splitToBitmapData(playerTileset, 0, 0, 25, 25, 4, 1), 100);
+		player.setLoop("idle", true); 
+		player.addLinearFrames("move_up", ResourcesLoader.splitToBitmapData(playerTileset, 0, 0, 25, 25, 4, 1), 100);
+		player.setLoop("move_up", true); 
+		player.addLinearFrames("move_right", ResourcesLoader.splitToBitmapData(playerTileset, 0, 1*25, 25, 25, 4, 1), 100);
+		player.setLoop("move_right", true); 
+		player.addLinearFrames("move_down", ResourcesLoader.splitToBitmapData(playerTileset, 0, 2*25, 25, 25, 4, 1), 100);
+		player.setLoop("move_down", true); 
+		player.addLinearFrames("move_left", ResourcesLoader.splitToBitmapData(playerTileset, 0, 3*25, 25, 25, 4, 1), 100);
+		player.setLoop("move_left", true); 
+		rs.addStatedAnimationData("player", player); 
 	}
 	
 }

@@ -30,9 +30,9 @@ class CollisionGrid extends BasicUI
 			this.grid = grid; 
 		} else { 
 			this.grid = new Array(); 
-			for (y in 0...xTiles) { 
+			for (y in 0...yTiles) { 
 				var line = new Array(); 
-				for (x in 0...yTiles) { 
+				for (x in 0...xTiles) { 
 					line[x] = false; 
 				} 
 				this.grid[y] = line; 
