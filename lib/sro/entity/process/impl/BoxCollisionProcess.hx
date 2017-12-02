@@ -37,14 +37,18 @@ class BoxCollisionProcess extends AbstractCollisionProcess implements IProcess
 			//Collision
 			if (collisionInformation.getCalculatedX() != 0) {
 				onCollision();
-				entity.setDx(0);
-				entity.setXx(collisionInformation.getCalculatedX());
+				if (isBlocking) {
+					entity.setDx(0);
+					entity.setXx(collisionInformation.getCalculatedX());
+				}
 			}
 			
 			if (collisionInformation.getCalculatedY() != 0) {
 				onCollision();
-				entity.setDy(0);
-				entity.setYy(collisionInformation.getCalculatedY());
+				if (isBlocking) {
+					entity.setDy(0);
+					entity.setYy(collisionInformation.getCalculatedY());
+				}
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 package ld.generator.room;
+
 import ld.generator.room.RoomUnit;
 import ld.generator.room.SpecificRoom;
 
@@ -134,6 +135,9 @@ class MapGenerator
 			roomMap[y][0] = 0;
 			roomMap[y][roomMap[0].length - 1] = 0;
 		}
+		
+		//TEST (A supprimer des que possible)
+		roomMap[1][1] = 2;
 		
 		return roomMap;
 	}

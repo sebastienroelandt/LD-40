@@ -33,6 +33,7 @@ import lib.sro.entity.process.impl.MoveProcess;
 import openfl.geom.Point;
 import src.ld.ui.entity.Player;
 import ld.generator.room.MapGenerator;
+import ld.generator.loot.LootGenerator;
 
 
 /**
@@ -52,7 +53,7 @@ class PlayScreen extends Screen
 	private var playlayer 			:	CameraLayer;
 	private var debutPoint			:	VisualPoint;
 	
-	private var newPlayer			: 	ICollisionableEntity;
+	private var newPlayer			: 	Player;
 	
 	private var generator			:	ParticlesGenerator;
 	
@@ -63,8 +64,6 @@ class PlayScreen extends Screen
 		this.screenController = screenController;
 		this.playlayer = new CameraLayer(SCREEN_HEIGHT, SCREEN_WIDTH, 8);
 		
-		
-		
 		var map = new TiledMapUI(GameController.assets.getTileset("tileset"), 
 			MapGenerator.initMap(),
 			[0]);
@@ -74,6 +73,8 @@ class PlayScreen extends Screen
 		
 		playlayer.add(map);
 		playlayer.add(newPlayer);
+		
+		LootGenerator.initLootMap([newPlayer], playlayer);
 		
 		this.add(playlayer);
 	}
