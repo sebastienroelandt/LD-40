@@ -257,7 +257,7 @@ class Bresenham
 		return true;
 	}
 	
-	public static function getMouvement(strength:Float, origine:Point, dest:Point):Point {
+	public static function getMouvement(strength:Float, origine:{x: Float, y:Float}, dest:{x: Float, y:Float}):Point {
 		var X = dest.x - origine.x;
 		var Y = dest.y - origine.y;
 		var M = Math.sqrt(X * X + Y * Y);		

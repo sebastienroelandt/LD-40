@@ -1,6 +1,7 @@
 package src.ld.ui.entity;
 
 import ld.generator.loot.LootType;
+import ld.ui.entity.BasicCollisionnableEntity;
 import lib.sro.entity.impl.CollisionableEntity;
 import lib.sro.core.GameController;
 import lib.sro.entity.process.impl.FrictionProcess;
@@ -15,7 +16,7 @@ import ld.generator.loot.LootGroup;
  * ...
  * @author Sebastien roelandt
  */
-class Player extends CollisionableEntity
+class Player extends BasicCollisionnableEntity
 {
 	private static var PLAYER_SPEED		= 1;
 	private static var PLAYER_FRICTION	= 0.7;
@@ -27,12 +28,10 @@ class Player extends CollisionableEntity
 
 	public function new(collisionMap  : Array<Array<Bool>>) 
 	{
-		super(GameController.assets.getStatedAnimationData("player"));
+		super(GameController.assets.getStatedAnimationData("player"), collisionMap);
 		
 		this.addProcess(new FrictionProcess(this, PLAYER_FRICTION, PLAYER_FRICTION));
 		this.addProcess(new MoveProcess(this, PLAYER_SPEED));
-		
-		this.addProcess(new GridBoxCollisionProcess(this, PlayScreen.TILE_WIDTH, PlayScreen.TILE_HEIGHT, collisionMap));
 		
 		this.setYy(90);
 		this.setXx(90);

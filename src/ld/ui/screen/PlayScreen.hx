@@ -1,5 +1,7 @@
 package ld.ui.screen;
 
+import ld.ui.light.LightMap;
+import ld.ui.entity.BasicMonster;
 import lib.sro.debug.VisualPoint;
 import lib.sro.debug.VisualPolygon;
 import lib.sro.engine.CollisionBox;
@@ -75,6 +77,13 @@ class PlayScreen extends Screen
 		playlayer.add(newPlayer);
 		
 		LootGenerator.initLootMap([newPlayer], playlayer);
+		
+		var testMonster = new BasicMonster(GameController.assets.getStatedAnimationData("basicMonster"), [newPlayer], map.getCollisionGrid());
+		testMonster.setXx(80);
+		testMonster.setYy(8 * 32);
+		playlayer.add(testMonster);
+		
+		playlayer.add(new LightMap(TILE_HEIGHT, TILE_WIDTH, 5 * 6 +1, 7 * 6 +1, [newPlayer], map.getCollisionGrid()));
 		
 		this.add(playlayer);
 	}

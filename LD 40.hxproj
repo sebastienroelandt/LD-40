@@ -21,13 +21,11 @@
     <class path="E:\Installation\HaxeToolkit\haxe\lib\actuate\1,8,6" />
     <class path="src" />
     <class path="bin\flash\haxe" />
-    <class path="lib\sro\entity\process\impl" />
-    <class path="lib\sro\entity\constraint" />
     <class path="lib\sro\entity\impl" />
-    <class path="lib\sro\engine" />
-    <class path="lib\sro\layers" />
+    <class path="lib\sro\data" />
+    <class path="lib\sro\entity\process\impl" />
+    <class path="lib\sro\ui\impl" />
     <class path="lib\sro\core" />
-    <class path="lib\sro\input" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -36,7 +34,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="-swf-version 11.2" />
+    <option additional="-swf-version 11.2&#xA;-debug " />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

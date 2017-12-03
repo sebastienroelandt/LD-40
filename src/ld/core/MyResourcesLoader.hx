@@ -33,6 +33,20 @@ class MyResourcesLoader
 		player.addLinearFrames("move_left", ResourcesLoader.splitToBitmapData(playerTileset, 0, 3*25, 25, 25, 4, 1), 100);
 		player.setLoop("move_left", true); 
 		rs.addStatedAnimationData("player", player); 
+		
+		var basicMonster = new StatedAnimationData("basicMonster"); 
+		var basicMonsterTileset = Assets.getBitmapData("img/basic_monster.png"); 
+		basicMonster.addLinearFrames("idle", ResourcesLoader.splitToBitmapData(basicMonsterTileset, 0, 0, 25, 25, 4, 1), 100);
+		basicMonster.setLoop("idle", true); 
+		basicMonster.addLinearFrames("move_up", ResourcesLoader.splitToBitmapData(basicMonsterTileset, 0, 0, 25, 25, 4, 1), 100);
+		basicMonster.setLoop("move_up", true); 
+		basicMonster.addLinearFrames("move_right", ResourcesLoader.splitToBitmapData(basicMonsterTileset, 0, 1*25, 25, 25, 4, 1), 100);
+		basicMonster.setLoop("move_right", true); 
+		basicMonster.addLinearFrames("move_down", ResourcesLoader.splitToBitmapData(basicMonsterTileset, 0, 2*25, 25, 25, 4, 1), 100);
+		basicMonster.setLoop("move_down", true); 
+		basicMonster.addLinearFrames("move_left", ResourcesLoader.splitToBitmapData(basicMonsterTileset, 0, 3*25, 25, 25, 4, 1), 100);
+		basicMonster.setLoop("move_left", true); 
+		rs.addStatedAnimationData("basicMonster", basicMonster); 
 	}
 	
 }
