@@ -2,6 +2,7 @@ package ld.ui.screen;
 
 import ld.ui.light.LightMap;
 import ld.ui.entity.BasicMonster;
+import ld.ui.loot.InventoryLayer;
 import lib.sro.debug.VisualPoint;
 import lib.sro.debug.VisualPolygon;
 import lib.sro.engine.CollisionBox;
@@ -53,6 +54,7 @@ class PlayScreen extends Screen
 	private var screenController 	: 	ScreenController;
 	
 	private var playlayer 			:	CameraLayer;
+	private var inventorylayers 	:	Array<DrawableLayer>;
 	private var debutPoint			:	VisualPoint;
 	
 	private var newPlayer			: 	Player;
@@ -64,18 +66,16 @@ class PlayScreen extends Screen
 		super();
 		
 		this.screenController = screenController;
-		this.playlayer = new CameraLayer(SCREEN_HEIGHT, SCREEN_WIDTH, 8);
 		
+		//Play
+		this.playlayer = new CameraLayer(SCREEN_HEIGHT, SCREEN_WIDTH, 8);
 		var map = new TiledMapUI(GameController.assets.getTileset("tileset"), 
 			MapGenerator.initMap(),
 			[0]);
-		
-		
 		newPlayer = new Player(map.getCollisionGrid());
-		
 		playlayer.add(map);
 		playlayer.add(newPlayer);
-		
+
 		LootGenerator.initLootMap([newPlayer], playlayer);
 		
 		var testMonster = new BasicMonster(GameController.assets.getStatedAnimationData("basicMonster"), [newPlayer], map.getCollisionGrid());
@@ -84,8 +84,12 @@ class PlayScreen extends Screen
 		playlayer.add(testMonster);
 		
 		playlayer.add(new LightMap(TILE_HEIGHT, TILE_WIDTH, 5 * 6 +1, 7 * 6 +1, [newPlayer], map.getCollisionGrid()));
-		
 		this.add(playlayer);
+		playlayer.x = 100;
+		
+		//Inventaire
+		var inventorylayer = new InventoryLayer(newPlayer);
+		this.add(inventorylayer);
 	}
 	
 	override public function update(delta:Float) 

@@ -26,6 +26,8 @@
     <class path="lib\sro\entity\process\impl" />
     <class path="lib\sro\ui\impl" />
     <class path="lib\sro\core" />
+    <class path="src\ld\ui\loot\InventoryLayer" />
+    <class path="lib\sro\layers" />
   </classpaths>
   <!-- Build options -->
   <build>

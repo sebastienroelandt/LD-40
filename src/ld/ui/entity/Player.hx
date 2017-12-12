@@ -25,6 +25,7 @@ class Player extends BasicCollisionnableEntity
 	
 	private var lootMap		: Array<LootGroup>;
 	private var currentLoot	: Map<LootType, Int>;
+	private var lootChange : Bool;
 
 	public function new(collisionMap  : Array<Array<Bool>>) 
 	{
@@ -36,6 +37,7 @@ class Player extends BasicCollisionnableEntity
 		this.setYy(90);
 		this.setXx(90);
 		this.currentLoot = new Map<LootType, Int>();
+		this.lootChange = false;
 	}
 	
 	override public function update(delta:Float) 
@@ -66,7 +68,18 @@ class Player extends BasicCollisionnableEntity
 		if (lootMap == null) {
 			lootMap = new Array<LootGroup>();
 		}
+		lootChange = true;
 		lootMap.push(loot);
+	}
+	
+	public function getCurrentLoot() : Map<LootType, Int> {
+		return this.currentLoot;
+	}
+	
+	public function hasLootChange() : Bool {
+		var lootChangeTemp = lootChange;
+		//lootChange = false;
+		return lootChangeTemp;
 	}
 	
 }
